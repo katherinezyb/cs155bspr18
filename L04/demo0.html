@@ -41,15 +41,21 @@
 
  // https://threejs.org/docs/index.html#api/objects/Mesh
  cube = new THREE.Mesh( geometry, material );
+ cube.position.x=2;
  scene.add( cube );
 
  camera.position.z = 5;
  }
 
+ var count =0;
+
  function animate() {
- requestAnimationFrame( animate );
+
+   count++;
+   cube.position.x = (count%100)/50.0;
  cube.rotation.x += 0.005;
- cube.rotation.y += 0.001;
+ cube.rotation.y += 0.1;
+ requestAnimationFrame( animate );
 
  renderer.render( scene, camera );
  }
